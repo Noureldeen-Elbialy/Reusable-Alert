@@ -1,0 +1,49 @@
+// alert-danger
+$bg-danger:rgba(147, 3, 3, 0.119);
+$c-b-danger:rgb(199, 2, 2);
+$p-danger:rgb(146, 4, 4);
+
+//alert-warning
+$bg-warning:rgba(188, 188, 7, 0.126);
+$c-b-warning:rgb(214, 214, 4);
+$p-warning:rgb(120, 120, 4);
+
+//alert-info
+$bg-info:rgba(5, 136, 197, 0.13);
+$c-b-info:rgb(5, 136, 197);
+$p-info:rgb(3, 79, 114);
+
+@mixin alert($name,$bg,$cb,$p){
+    .#{$name}{
+        border: 3px dotted $cb;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: $bg;
+        margin-bottom: 1rem;
+        .alert-head{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: $cb;
+            .title{
+                display: flex;
+                align-items: center;
+                h3{
+                    margin: 0;
+                    margin-left: 0.5rem;
+                }
+            }
+            .colse{
+                cursor: pointer;
+            }
+        }
+        p{
+            color: $p;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+@include alert("alert-danger",$bg-danger,$c-b-danger ,$p-danger );
+@include alert("alert-warning",$bg-warning,$c-b-warning ,$p-warning );
+@include alert("alert-info",$bg-info,$c-b-info ,$p-info );
